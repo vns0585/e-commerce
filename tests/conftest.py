@@ -20,6 +20,12 @@ def first_category() -> Category:
 
 
 @pytest.fixture
+def first_category_products() -> str:
+    return ("Product 1, 100 руб. Остаток: 10 шт.\nProduct 2, 200 руб. Остаток: 20 шт.\nProduct 3, 150.5 руб. Остаток:"
+            " 15 шт.\n")
+
+
+@pytest.fixture
 def second_category() -> Category:
     return Category(
         name="Second Category",
@@ -29,6 +35,11 @@ def second_category() -> Category:
             Product("Second Product", description="Second Product Description", price=800.95, quantity=3)
         ]
     )
+
+
+@pytest.fixture
+def second_category_products() -> str:
+    return "First Product, 400 руб. Остаток: 12 шт.\nSecond Product, 800.95 руб. Остаток: 3 шт.\n"
 
 
 @pytest.fixture
@@ -94,3 +105,22 @@ def utils_json_data() -> str:
 @pytest.fixture
 def utils_load_from_json_result() -> list:
     return utils_data
+
+
+@pytest.fixture
+def new_product_dict_same() -> dict:
+    return {
+        "name": "Product 1",
+        "description": "Product 1 Description",
+        "price": 100,
+        "quantity": 10
+    }
+
+
+@pytest.fixture
+def new_product_list() -> list:
+    return [
+        Product("Product 1", description="Product 1 Description", price=100, quantity=10),
+        Product("Product 2", description="Product 2 Description", price=200, quantity=20),
+        Product("Product 3", description="Product 3 Description", price=150.50, quantity=15)
+    ]
