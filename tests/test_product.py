@@ -13,6 +13,14 @@ def test_product_init(product: Product) -> None:
     assert product.quantity == 100
 
 
+def test_product_str(product: Product) -> None:
+    assert str(product) == "Product 0, 1000.1 руб. Остаток: 100 шт."
+
+
+def test_product_add(new_product_list: list) -> None:
+    assert new_product_list[0] + new_product_list[1] == 5000
+
+
 def test_product_set_price(product: Product, capsys: CaptureFixture[str]) -> None:
     product.price = 2000
     assert product.price == 2000
