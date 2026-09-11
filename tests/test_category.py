@@ -1,3 +1,5 @@
+import pytest
+
 from src.category import Category
 from src.product import Product
 
@@ -27,3 +29,8 @@ def test_category_str(first_category: Category) -> None:
 def test_category_add_product(product: Product, first_category: Category, first_category_products: str) -> None:
     first_category.add_product(product)
     assert first_category.products == first_category_products + "Product 0, 1000.1 руб. Остаток: 100 шт.\n"
+
+
+def test_category_add_product_typeerror(first_category: Category) -> None:
+    with pytest.raises(TypeError):
+        first_category.add_product(1)  # type: ignore
