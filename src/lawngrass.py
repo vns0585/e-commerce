@@ -9,7 +9,7 @@ class LawnGrass(Product):
         self.germination_period = germination_period
         self.color = color
 
-    def __add__(self, other: 'LawnGrass') -> float:
+    def __add__(self, other: 'Product') -> float:
         if type(other) is LawnGrass:
             return self.price * self.quantity + other.price * other.quantity
         else:

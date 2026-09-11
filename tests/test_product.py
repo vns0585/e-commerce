@@ -4,6 +4,7 @@ import pytest
 from _pytest.capture import CaptureFixture
 
 from src.product import Product
+from src.smartphone import Smartphone
 
 
 def test_product_init(product: Product) -> None:
@@ -19,6 +20,11 @@ def test_product_str(product: Product) -> None:
 
 def test_product_add(new_product_list: list) -> None:
     assert new_product_list[0] + new_product_list[1] == 5000
+
+
+def test_product_add_typeerror(product: Product, smartphone1: Smartphone) -> None:
+    with pytest.raises(TypeError):
+        product + smartphone1
 
 
 def test_product_set_price(product: Product, capsys: CaptureFixture[str]) -> None:
