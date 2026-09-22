@@ -1,6 +1,6 @@
 import pytest
 
-from src.lawngrass import LawnGrass
+from src.lawn_grass import LawnGrass
 
 
 def test_lawngrass(lawngrass1: LawnGrass) -> None:

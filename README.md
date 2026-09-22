@@ -4,16 +4,18 @@
 E-commerce — электронная торговля, или электронная коммерция. На данном этапе работы мы не реализовали систему платежей, однако готовим всё для того, чтобы у нас появилось ядро для интернет-магазина. В дальнейшем для этого ядра возможно будет реализовать любой интерфейс — от сайта до телеграм-бота.
 
 ## Основные возможности
-1. На данный момент реализованы 5 классов для работы с продуктами и их категориями.
+1. На данный момент реализованы 7 классов для работы с продуктами и их категориями.
 2. Реализована функция загрузки объектов из json-файла.
 
 ## Структура проекта
 
 Основные модули находятся в директории src/: 
 
+- base_product.py - содержит абстрактный класс BaseProduct
 - category.py - содержит класс Category
 - category_iterator.py - содержит класс CategoryIterator
 - lawngrass.py - содержит класс LawnGrass
+- print_mixin.py - содержит ксласс-миксин PrintMixin
 - product.py - содержит класс Product
 - smartphone.py - содержит класс Smartphone
 - utils.py - содержит функции для загрузки объектов из json-файла
@@ -47,6 +49,7 @@ poetry add --group dev pytest pytest-cov
 Функционал пока дорабатывается. Можно ознакомиться с содержанием файла main.py, находящимся в корне проекта, как с примером использования.
 
 1. Импортируйте нужные модули из проекта
+
 ```python
 # Для загрузки и создания объектов
 from src.utils import load_from_json, create_objects_from_json
@@ -55,7 +58,7 @@ from src.utils import load_from_json, create_objects_from_json
 from src.product import Product
 from src.category import Category
 from src.category_iterator import CategoryIterator
-from src.lawngrass import LawnGrass
+from src.lawn_grass import LawnGrass
 from src.smartphone import Smartphone
 ```
 2. Примеры использования функций загрузки из файла
@@ -160,6 +163,7 @@ tests/
 ├── test_category.py           # Тесты для класса Category
 ├── test_category_iterator.py  # Тесты для класса CategoryIterator
 ├── test_lawngrass.py          # Тесты для класса LawnGrass
+├── test_print_mixin.py        # Тесты для класса PrintMixin
 ├── test_product.py            # Тесты для класса Product
 ├── test_smartphone.py         # Тесты для класса Smartphone
 ├── utils.py                   # Тесты функций для загрузки из json-файла
