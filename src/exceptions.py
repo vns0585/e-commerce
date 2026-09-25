@@ -1,4 +1,4 @@
 class ZeroQuantityException(Exception):
 
-    def __init__(self, message=None):
+    def __init__(self, message: str = ''):
         super().__init__(message)
