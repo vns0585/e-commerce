@@ -14,6 +14,16 @@ def test_product_init(product: Product) -> None:
     assert product.quantity == 100
 
 
+def test_product_init_zero_quantity() -> None:
+    with pytest.raises(ValueError, match="Товар с нулевым количеством не может быть добавлен"):
+        Product(
+            name="Product 0",
+            description="Product 0 Description",
+            price=1000.1,
+            quantity=0
+        )
+
+
 def test_product_str(product: Product) -> None:
     assert str(product) == "Product 0, 1000.1 руб. Остаток: 100 шт."
 
